@@ -55,7 +55,7 @@ int main() {
 
 	std::vector<double> T_w_bulk(N, 300.0);         // Initial wall temperature [K]
 	std::vector<double> T_w_bulk_old;               // Old temperature [K]
-	std::vector<double> Q(N, 1e6);                // Heat pipe volumetric source term [W/m3]
+	std::vector<double> Q(N, 1e6);                  // Heat pipe volumetric source term [W/m3]
 
 	// Tridiagonal matrix coefficients
     std::vector<double> aTW(N, 0.0);
