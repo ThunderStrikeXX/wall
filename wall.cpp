@@ -131,7 +131,7 @@ int main() {
 
         // Output
         for (int i = 0; i < N; ++i)
-            file << T_w_bulk[i] << " ";
+            file << T_w_bulk[i] << ", ";
 
         file << "\n";
         file.flush();
