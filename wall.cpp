@@ -72,7 +72,7 @@ int main() {
 	constexpr int N = 100;                          // Number of wall cells
 	constexpr double L = 1.0;                       // Wall length [m]
 	constexpr double dz = L / N;                    // Cell size [m]
-	constexpr double dt = 1e-3;                     // Time step [s]
+	constexpr double dt = 1;                     // Time step [s]
 	constexpr int time_iter = 1000;                 // Number of time iterations
 
 	constexpr double k = 20.0;                      // Steel thermal conductivity [W/mK]
@@ -82,7 +82,7 @@ int main() {
 
 	std::vector<double> T_w_bulk(N, 300.0);         // Initial wall temperature [K]
 	std::vector<double> T_w_bulk_old;               // Old temperature [K]
-	std::vector<double> Q(N, 1e8);                  // Heat pipe volumetric source term [W/m3]
+	std::vector<double> Q(N, 0.0);                  // Heat pipe volumetric source term [W/m3]
 
 	// Tridiagonal matrix coefficients
     std::vector<double> aTW(N, 0.0);
@@ -118,8 +118,8 @@ int main() {
         // Wall temperature BCs
         aTW[0] = 0.0;
         bTW[0] = 1.0;
-        cTW[0] = -1.0;
-        dTW[0] = 0.0;
+        cTW[0] = 0.0;
+        dTW[0] = 350.0;
 
         aTW[N - 1] = 0.0;
         bTW[N - 1] = 1.0;
